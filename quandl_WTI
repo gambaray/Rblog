@@ -1,0 +1,11 @@
+# install.packages("Quandl") #if you haven't installed yet
+library("Quandl")
+source("bandwt.R")
+Quandl.auth("XXXXXXXXXXXXXXXXXXXXX") # write down your Quandl API
+WP <- Quandl("ODA/POILWTI_USD",
+             start_date="1980-03-31", # set start date 
+             end_date="2015-02-28", # set end date
+             collapse="quarterly", # choose from "weekly", "monthly", "quarterly", "annual" (default as "daily")
+             type="ts" # choose from "raw", "ts", "zoo", "xts"
+            )
+ts.plot(data)
